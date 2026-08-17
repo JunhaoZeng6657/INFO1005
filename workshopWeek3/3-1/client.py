@@ -1,8 +1,10 @@
+from account import Account
 class Client:
     def __init__(self,client_id,name,email):
         self.__client_id = client_id
         self.__name = name
         self.__email = email
+        self.__acount = []
 
     def change_email(self,new_email):
         self.__email = new_email
@@ -40,3 +42,14 @@ class Client:
             self.__email = new_email
         else:
             print("Invalid email.")
+
+    def add_account(self,account):
+        if isinstance(account,Account):
+            self.__account.append(account)
+            print("Account added.")
+        else:
+            print("Invalid account.")
+
+    def display_accounts(self):
+        for account in self.__acount:
+            print(account)
