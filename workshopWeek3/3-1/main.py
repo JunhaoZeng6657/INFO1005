@@ -11,104 +11,38 @@ account1 = Account("A01","Savings",1000)
 account2 = Account("A02","Checking",2000)
 account3 = Account("A03","Savings",500)
 
-transaction1 = Transaction(
-    "T01",
-    "Deposit",
-    500,
-    "Cash deposit"
-)
-
-transaction2 = Transaction(
-    "T02",
-    "Withdrawal",
-    200,
-    "ATM withdrawal"
-)
-
-transaction3 = Transaction(
-    "T03",
-    "Transfer",
-    300,
-    "Transfer payment"
-)
-
-branch1 = Branch(
-    "B01",
-    "City Branch",
-    "Adelaide",
-    "08 1111 1111"
-)
-
-branch2 = Branch(
-    "B02",
-    "North Branch",
-    "North Adelaide",
-    "08 2222 2222",
-    True
-)
-
-branch3 = Branch(
-    "B03",
-    "West Branch",
-    "West Adelaide",
-    "08 3333 3333"
-)
-
-#Demonstrate Client Methods
-print(client1.email)
-client1.change_email("newtom@email.com")
-print(client1.email)
-
-#Demonstrate Account Methods
-print(account1.balance)
-account1.deposit(200)
-print(account1.balance)
-
-#Demonstrate Transaction Methods
-print(transaction1.status)
-print(transaction2.status)
-
-transaction1.process_transaction()
-transaction2.cancel_transaction()
-
-print(transaction1.status)
-print(transaction2.status)
-
-#Change Description
-print(transaction3.description)
-transaction3.update_description("Payment to another account")
-print(transaction3.description)
-
-#Demonstrate Branch Methods
-print(branch1.is_open)
-branch1.open_branch()
-print(branch1.is_open)
-
-branch2.close_branch()
-print(branch2.is_open)
-
-#Change phone number
-print(branch3.phone_number)
-branch3.update_phone_number("08 9999 9999")
-print(branch3.phone_number)
-
-#Display the Initial Objects
 print(client1)
 print(account1)
-print(transaction1)
-print(branch1)
 
-#Perform operations
-client1.change_email("newtom@email.com")
+print(client1.get_name())
+
+client1.set_name("Thomas")
+print(client1.get_name())
+
+client1.set_name(123)
+print(client1.get_name())
+
+#Test account validation
+print(account1.get_balance())
+
 account1.deposit(200)
-account2.withdraw(100)
-transaction1.process_transaction()
-transaction2.cancel_transaction()
-branch1.open_branch()
-branch2.close_branch()
+print(account1.get_balance())
 
-#Test repr()
-print(repr(client1))
-print(repr(account1))
-print(repr(transaction1))
-print(repr(branch1))
+account1.deposit("hello")
+print(account1.get_balance())
+
+#Create relationships
+client1.add_account(account1)
+client1.add_account(account2)
+
+client2.add_account(account3)
+
+#Display relationship
+print("Client 1 account:")
+client1.display_accounts()
+
+print("Client 2 account:")
+client2.display_accounts()
+
+#Test invalid relationship
+client1.add_account("Not an account")

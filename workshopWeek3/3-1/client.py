@@ -4,7 +4,7 @@ class Client:
         self.__client_id = client_id
         self.__name = name
         self.__email = email
-        self.__acount = []
+        self.__account = []
 
     def change_email(self,new_email):
         self.__email = new_email
@@ -51,5 +51,5 @@ class Client:
             print("Invalid account.")
 
     def display_accounts(self):
-        for account in self.__acount:
+        for account in self.__account:
             print(account)
