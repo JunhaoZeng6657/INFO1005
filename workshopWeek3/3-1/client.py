@@ -29,9 +29,14 @@ class Client:
         return self.__email
 
     def set_name(self,new_name):
-        self.__name = new_name
+        if isinstance(new_name, str):
+            self.__name = new_name
+        else:
+            print("Invalid name.")
+
 
     def set_email(self,new_email):
-        self.__email = new_email
-
-    
+        if isinstance(new_email, str):
+            self.__email = new_email
+        else:
+            print("Invalid email.")

@@ -57,4 +57,7 @@ class Transaction:
         return self.__status
 
     def set_description(self,new_description):
-        self.__description = new_description
+        if isinstance(new_description, str):
+            self.__description = new_description
+        else:
+            print("Invalid description.")

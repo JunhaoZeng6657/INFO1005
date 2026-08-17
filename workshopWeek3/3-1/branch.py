@@ -54,7 +54,10 @@ class Branch:
         return self.__phone_number
 
     def set_phone_number(self,new_phone_number):
-        self.__phone_number = new_phone_number
+        if isinstance(new_phone_number, str):
+            self.__phone_number = new_phone_number
+        else:
+            print("Invalid phone number.")
 
     def get_is_open(self):
         return self.__is_open

@@ -5,13 +5,27 @@ class Account:
         self.__balance = balance
 
     def deposit(self,amount):
-        self.balance = self.balance + amount
-
-    def withdraw(self,amount):
-        if amount <= self.balance:
-            self.balance = self.balance - amount
+        if isinstance(amount, (int, float)):
+            if amount > 0:
+                self.__balance = self.__balance + amount
+                print("Deposit successful.")
+            else:
+                print("Invalid amount.")
         else:
-            print("Insufficient funds")
+            print("Invalid amount.")
+            
+    def withdraw(self,amount):
+        if isinstance(amount, (int, float)):
+            if amount > 0:
+                if amount <= self.__balance:
+                    self.__balance = self.__balance - amount
+                    print("Withdrawal successful.")
+                else:
+                    print("Insufficient funds.")
+            else:
+                print("Invalid amount.")
+        else:
+            print("Invalid amount.")
 
     def __str__(self):
         return (
@@ -32,7 +46,10 @@ class Account:
         return self.__account_type
 
     def set_account_type(self,new_account_type):
-        self.__account_type = new_account_type
+        if isinstance(new_account_type, str):
+            self.__account_type = new_account_type
+        else:
+            print("Invalid account type.")
 
     def get_balance(self):
         return self.__balance
