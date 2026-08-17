@@ -24,3 +24,15 @@ class Account:
             f"account_type='{self.account_type}"
             f"balance={self.balance})"
         )
+
+    def get_account_number(self):
+        return self.__account_number
+
+    def get_account_type(self):
+        return self.__account_type
+
+    def set_account_type(self,new_account_type):
+        self.__account_type = new_account_type
+
+    def get_balance(self):
+        return self.__balance

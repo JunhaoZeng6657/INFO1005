@@ -40,3 +40,21 @@ class Transaction:
             f"description='{self.description}',"
             f"status='{self.status}')"
         )
+
+    def get_transaction_id(self):
+        return self.__transaction_id
+
+    def get_transaction_type(self):
+        return self.__transaction_type
+
+    def get_amount(self):
+        return self.__amount
+
+    def get_description(self):
+        return self.__description
+
+    def get_status(self):
+        return self.__status
+
+    def set_description(self,new_description):
+        self.__description = new_description
