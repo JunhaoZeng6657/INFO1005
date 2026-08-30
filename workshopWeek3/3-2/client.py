@@ -1,4 +1,7 @@
 from account import Account
+from branch import Branch
+# The Client class stores client information.
+# It also manages the client's accounts and interacts with branches.
 class Client:
     def __init__(self,client_id,name,email):
         self.__client_id = client_id
@@ -7,14 +10,13 @@ class Client:
         self.__account = []
 
     def change_email(self,new_email):
-        self.__email = new_email
+        self.set_email(new_email)
 
     def __str__(self):
         return  (
             f"Client {self.__client_id}:"
             f"{self.__name},Content:{self.__email}"
             )
-    
     def __repr__(self):
         return (
             f"Client(client_id='{self.__client_id}',"
@@ -54,3 +56,9 @@ class Client:
     def display_accounts(self):
         for account in self.__account:
             print(account)
+
+    def visit_branch(self,branch):
+        if isinstance(branch,Branch):
+            print(f"{self.__name} is visiting {branch.get_branch_name()}.")
+        else:
+            print("Invalid branch.")

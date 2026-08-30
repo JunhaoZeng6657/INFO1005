@@ -11,10 +11,15 @@ account1 = Account("A01","Savings",1000)
 account2 = Account("A02","Checking",2000)
 account3 = Account("A03","Savings",500)
 
-print(client1)
-print(account1)
+branch1 = Branch(
+    "B01",
+    "Main Branch",
+    "Adelaide",
+    "08 1234 5678"
+    )
 
 print(client1.get_name())
+print(account1.get_balance())
 
 client1.set_name("Thomas")
 print(client1.get_name())
@@ -22,26 +27,9 @@ print(client1.get_name())
 client1.set_name(123)
 print(client1.get_name())
 
-#Test account validation
-print(account1.get_balance())
-
-account1.deposit(200)
-print(account1.get_balance())
-
-account1.deposit("hello")
-print(account1.get_balance())
-
-#Create relationships
 client1.add_account(account1)
 client1.add_account(account2)
-client2.add_account(account3)
 
-#Display relationship
-print("Client 1 account:")
 client1.display_accounts()
 
-print("Client 2 account:")
-client2.display_accounts()
-
-#Test invalid relationship
-client1.add_account("Not an account")
+client1.visit_branch(branch1)
