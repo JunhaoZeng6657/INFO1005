@@ -1,11 +1,12 @@
 # The Transaction class stores transaction information.
 # It manages the processing status of a transaction.
 class Transaction:
+    """Represents a financial transaction and mananges its status."""
     def __init__(self,transaction_id,transaction_type,amount,description):
         self.__transaction_id = transaction_id
         self.__transaction_type = transaction_type
         self.__amount = amount
-        self.__description = description
+        self.set_description(description)
         self.__status = "Pending"
 
     def process_transaction(self):
@@ -23,7 +24,7 @@ class Transaction:
             print("Transaction cannot be cancelled.")
 
     def update_description(self,new_description):
-        self.__description = new_description
+        self.set_description(new_description)
 
     def __str__(self):
         return (

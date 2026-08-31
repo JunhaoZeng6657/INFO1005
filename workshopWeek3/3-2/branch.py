@@ -1,11 +1,12 @@
 # The Branch class stores branch information.
 # It manages contact details and opening status.
 class Branch:
+    """Represents a financial branch and manages branch information."""
     def __init__(self,branch_number,branch_name,location,phone_number,is_open=False):
         self.__branch_number = branch_number
         self.__branch_name = branch_name
         self.__location = location
-        self.__phone_number = phone_number
+        self.set_phone_number(phone_number)
         self.__is_open = is_open
 
     def open_branch(self):

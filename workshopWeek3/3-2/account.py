@@ -1,9 +1,10 @@
 # The Account class stores account information
 # It manages the balance through deposit and withdrawal methods.
 class Account:
+    """Represents a financial account and manages its balance"""
     def __init__(self,account_number,account_type,balance):
         self.__account_number = account_number
-        self.__account_type = account_type
+        self.set_account_type(account_type)
         self.__balance = balance
 
     def deposit(self,amount):
@@ -32,7 +33,8 @@ class Account:
     def __str__(self):
         return (
             f"Account {self.__account_number}:"
-            f"{self.__account_type},Balance:${self.__balance:.2f}"
+            f"{self.__account_type},"
+            f"Balance:${self.__balance:.2f}"
             )
 
     def __repr__(self):
