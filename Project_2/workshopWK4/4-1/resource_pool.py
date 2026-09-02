@@ -135,7 +135,7 @@ class ResourcePool:
 
         return True
 
-    def spend_resources(
+    def consume_resources(
             self,
             necrotic_power,
             spirit_essence,
@@ -161,7 +161,7 @@ class ResourcePool:
 
     def __str__(self):
         return (
-            f"Resource Pool:\n"
+            f"Resource Pool\n"
             f"Necrotic Power: {self.__necrotic_power}\n"
             f"Spirit Essence: {self.__spirit_essence}\n"
             f"Bone Fragments: {self.__bone_fragments}\n"
